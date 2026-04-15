@@ -6,7 +6,7 @@ on:
       - main
       - develop
     paths:
-      - 'src/checkoutservice/**'
+      - 'src/**'
       - '.github/workflows/checkoutservice.yaml'
       - '.github/workflows/template.yaml'
   pull_request:
@@ -14,7 +14,7 @@ on:
       - main
       - develop
     paths:
-      - 'src/checkoutservice/**'
+      - 'src/**'
       - '.github/workflows/checkoutservice.yaml'
       - '.github/workflows/template.yaml'
 
@@ -23,11 +23,11 @@ permissions:
 
 jobs:
   call-template:
-    uses: ./.github/workflows/template.yaml
+    uses: HipsterShopp/hipstershop-shared-workflows/.github/workflows/template.yaml@main
     with:
       github_event_name: ${{ github.event_name }}
       service_name: checkoutservice
-      service_path: src/checkoutservice
+      service_path: src/
       runtime: go
       go-version: "1.26.1"
     secrets:
